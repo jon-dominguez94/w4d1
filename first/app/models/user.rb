@@ -1,4 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id         :bigint(8)        not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  username   :string           not null
+#
+
 class User < ApplicationRecord
-  validates :email, uniqueness: true, presence:true
-  validates :name, presence:true
+  validates :username, presence:true, uniqueness:true
+  
+  has_many :artworks,
+    foreign_key: :artist_id,
+    class_name: :Artwork
 end
