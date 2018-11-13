@@ -1279,3 +1279,26 @@ Unpermitted parameter: :color
 Completed 422 Unprocessable Entity in 53ms (Views: 0.2ms | ActiveRecord: 6.9ms)
 
 
+Started GET "/artworks/2" for 127.0.0.1 at 2018-11-12 17:30:20 -0800
+Processing by ArtworksController#show as */*
+  Parameters: {"user"=>{"username"=>"lilweezy5", "color"=>"purple"}, "id"=>"2"}
+  [1m[36mArtwork Load (1.0ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/artworks_controller.rb:17
+Completed 200 OK in 114ms (Views: 0.7ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/artworks/2" for 127.0.0.1 at 2018-11-12 17:30:50 -0800
+Processing by ArtworksController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mArtwork Load (0.7ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/artworks_controller.rb:17
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/artworks/" for 127.0.0.1 at 2018-11-12 17:31:07 -0800
+Processing by ArtworksController#index as */*
+  [1m[36mArtwork Load (0.7ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/artworks_controller.rb:4
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.7ms)
+
+
