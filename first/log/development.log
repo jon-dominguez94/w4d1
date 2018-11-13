@@ -1233,3 +1233,49 @@ Migrating to CreateArtworkShares (20181113003547)
   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:23
   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2018-11-12 17:11:13 -0800
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/var/rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"lilweezy5", "color"=>"purple"}}
+Unpermitted parameter: :color
+Unpermitted parameter: :color
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "lilweezy5"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2018-11-13 01:11:14.091968"], ["updated_at", "2018-11-13 01:11:14.091968"], ["username", "lilweezy5"]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12
+Completed 200 OK in 91ms (Views: 1.3ms | ActiveRecord: 15.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-11-12 17:14:27 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"lilweezy5", "color"=>"purple"}}
+Unpermitted parameters: :username, :color
+Unpermitted parameters: :username, :color
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12
+Completed 422 Unprocessable Entity in 40ms (Views: 0.4ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-11-12 17:14:47 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"lilweezy5", "color"=>"purple"}}
+Unpermitted parameter: :color
+Unpermitted parameter: :color
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "lilweezy5"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12
+Completed 422 Unprocessable Entity in 53ms (Views: 0.2ms | ActiveRecord: 6.9ms)
+
+
